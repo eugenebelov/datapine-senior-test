@@ -17,13 +17,18 @@ require.config({
     paths: {
         jquery: '../bower_components/jquery/jquery',
         backbone: '../bower_components/backbone/backbone',
-        underscore: '../bower_components/underscore/underscore'
+        underscore: '../bower_components/underscore/underscore',
+        text: '../bower_components/requirejs-text/text'
     }
 });
 
 require([
-    'backbone'
-], function (Backbone) {
+    'backbone', 'application'
+], function (Backbone, Application) {
+
+    console.log('Hello from Backbone! :)');
+
+    Application.initialize();
+
     Backbone.history.start();
-    console.log('Hello from Backbone!');
 });

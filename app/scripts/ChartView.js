@@ -156,8 +156,6 @@ define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!tem
 			var compiledTemplate = _.template( chartsTemplate, categoryItems );
 
 			this.$el.html( compiledTemplate );
-
-			this.addChart();
 		}
 	});
 

@@ -1,12 +1,11 @@
 define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!templates/charts-preview.html'], 
 	function($, _, Backbone, Highcharts, Drilldown, chartsTemplate) {
 
-	var ChartView = Backbone.View.extend({
+	var ChartViewPreview = Backbone.View.extend({
 		el: $('#appView'),
 
 		addChart: function() {
-			// $('#container').append("lolol")
-			$('#container').highcharts({
+			return $('#container').highcharts({
 		        chart: {
 		            type: 'column',
 		            events: {
@@ -121,7 +120,7 @@ define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!tem
 		    })
 		},
 
-		render: function() {
+		render: function(type) {
 			
 			var categoryItems = {
 				categoryItems: [
@@ -132,10 +131,9 @@ define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!tem
 			var compiledTemplate = _.template( chartsTemplate );
 
 			this.$el.html( compiledTemplate );
-
 			this.addChart();
 		}
 	});
 
-  return ChartView;
+  return ChartViewPreview;
 });

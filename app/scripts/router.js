@@ -28,14 +28,12 @@ define(['backbone', 'ChartView', 'AboutView', 'ChartViewPreview'],
 
 		router.on('route:show-previews', function(type) {
 			console.log("show-previews", type);
-
-			new ChartViewPreview({options: type}).render();
-
 		})
 
 		router.on('route:show-full-charts', function(type, charttype) {
 			console.log("show-full-charts", type, charttype);
 
+			new ChartViewPreview().render({charttype: charttype});
 		})
 	};
 

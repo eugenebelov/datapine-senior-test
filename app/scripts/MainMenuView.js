@@ -8,7 +8,7 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/main-menu.html'],
 			var data = {},
 				compiledTemplate = _.template( mainMenuTemplate, data );
 
-			this.$el.append( compiledTemplate );
+			this.$el.html( compiledTemplate );
 		}
 	});
 

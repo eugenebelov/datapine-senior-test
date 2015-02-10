@@ -12,13 +12,23 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
+        },
+        highcharts: {
+            "exports": "highcharts",
+            "deps": [ "jquery"] 
+        },
+        drilldown: {
+            "exports": "drilldown",
+            "deps": [ "jquery", "highcharts"] 
         }
     },
     paths: {
         jquery: '../bower_components/jquery/jquery',
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/underscore/underscore',
-        text: '../bower_components/requirejs-text/text'
+        text: '../bower_components/requirejs-text/text',
+        highcharts: '../bower_components/highcharts-release/highcharts',
+        drilldown: '../bower_components/highcharts-release/modules/drilldown'
     }
 });
 

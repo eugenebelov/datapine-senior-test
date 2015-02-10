@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!templates/charts.html'], 
+define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!templates/charts-preview.html'], 
 	function($, _, Backbone, Highcharts, Drilldown, chartsTemplate) {
 
 	var ChartView = Backbone.View.extend({
@@ -125,35 +125,11 @@ define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!tem
 			
 			var categoryItems = {
 				categoryItems: [
-					{
-						name: "Git charts",
-						list: [
-							{
-								chart_type: "Line",
-								chart_link: "#/charts/git/line"
-							},
-							{
-								chart_type: "Column",
-								chart_link: "#/charts/git/column"
-							}
-						]
-					},
-					{
-						name: "Skills charts",
-						list: [
-							{
-								chart_type: "Pie",
-								chart_link: "#/charts/skills/pie"
-							},
-							{
-								chart_type: "Combi",
-								chart_link: "#/charts/skills/combi"
-							}
-						]
-					}
+					{name: "Git charts"},
+					{name: "Skills charts"}
 			]};
 
-			var compiledTemplate = _.template( chartsTemplate, categoryItems );
+			var compiledTemplate = _.template( chartsTemplate );
 
 			this.$el.html( compiledTemplate );
 

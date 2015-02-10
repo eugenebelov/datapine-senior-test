@@ -1,14 +1,18 @@
-define(['jquery', 'underscore', 'backbone', 'router', 'MainMenuView'], 
-  function($, _, Backbone, Router, MainMenuView) {
+define(['jquery', 'underscore', 'backbone', 'router', 'layoutmanager', 'views/MainMenuView'], 
+  function($, _, Backbone, Router, Layout, MainMenuView) {
     var initialize = function() {
-      Router.initialize();
+    	Router.initialize();
 
-      _.templateSettings.variable = "rc";
-      
-      new MainMenuView().render();
+		// _.templateSettings.variable = "rc";
+
+		Layout.configure({
+			manage: true
+		});
+
+		new MainMenuView().render();
     }
 
     return {
-      initialize: initialize
-    };
+    	initialize: initialize
+    }
 });

@@ -1,8 +1,10 @@
 define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!templates/charts-preview.html'], 
 	function($, _, Backbone, Highcharts, Drilldown, chartsTemplate) {
 
-	var ChartViewPreview = Backbone.View.extend({
+	var ChartViewPreview = Backbone.Layout.extend({
 		el: $('#appView'),
+
+		template: _.template( chartsTemplate ),
 
 		addChart: function() {
 			return $('#container').highcharts({
@@ -120,18 +122,12 @@ define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 'text!tem
 		    })
 		},
 
-		render: function(type) {
-			
-			var categoryItems = {
-				categoryItems: [
-					{name: "Git charts"},
-					{name: "Skills charts"}
-			]};
-
-			var compiledTemplate = _.template( chartsTemplate );
-
-			this.$el.html( compiledTemplate );
+		afterRender: function() {
 			this.addChart();
+		},
+
+		render: function() {
+			
 		}
 	});
 

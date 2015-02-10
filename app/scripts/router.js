@@ -1,4 +1,4 @@
-define(['backbone', 'ChartView', 'AboutView', 'ChartViewPreview'], 
+define(['backbone', 'views/ChartView', 'views/AboutView', 'views/ChartViewPreview'], 
 	function(Backbone, ChartView, AboutView, ChartViewPreview){
     
 	var Router = Backbone.Router.extend({
@@ -33,7 +33,7 @@ define(['backbone', 'ChartView', 'AboutView', 'ChartViewPreview'],
 		router.on('route:show-full-charts', function(type, charttype) {
 			console.log("show-full-charts", type, charttype);
 
-			new ChartViewPreview().render({charttype: charttype});
+			new ChartViewPreview().render();
 		})
 	};
 

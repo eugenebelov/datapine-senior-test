@@ -3,8 +3,6 @@ define(['jquery', 'underscore', 'backbone', 'router', 'layoutmanager', 'views/Ma
     var initialize = function() {
     	Router.initialize();
 
-		// _.templateSettings.variable = "rc";
-
 		Layout.configure({
 			manage: true
 		});

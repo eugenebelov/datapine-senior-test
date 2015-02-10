@@ -6,8 +6,7 @@ define(['backbone', 'views/ChartView', 'views/AboutView', 'views/ChartViewPrevie
 			"": "charts",
 			"about": "about",
 			"charts": "charts",
-			"charts/:type": "show-previews",
-			"charts/:type/:charttype": "show-full-charts"
+			"charts/:type": "show-previews"
 		}
 	});
 
@@ -17,23 +16,22 @@ define(['backbone', 'views/ChartView', 'views/AboutView', 'views/ChartViewPrevie
 		router.on('route:about', function() {
 			console.log("show about");
 
-			new AboutView().render();
+			var about = new AboutView();
+			about.render();
 		})
 
 		router.on('route:charts', function() {
 			console.log("show charts");
 
-			new ChartView().render();
+			var chart = new ChartView();
+			chart.render();
 		})
 
 		router.on('route:show-previews', function(type) {
 			console.log("show-previews", type);
-		})
 
-		router.on('route:show-full-charts', function(type, charttype) {
-			console.log("show-full-charts", type, charttype);
-
-			new ChartViewPreview().render();
+			var preview = new ChartViewPreview()
+			preview.render();
 		})
 	};
 

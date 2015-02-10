@@ -1,0 +1,18 @@
+[
+    {
+        "type": "Line",
+        "link": "#/charts/line"
+    },
+    {
+        "type": "Column",
+        "link": "#/charts/column"
+    },
+    {
+        "type": "Pie",
+        "link": "#/charts/pie"
+    },
+    {
+        "type": "Combi",
+        "link": "#/charts/combi"
+    }
+]

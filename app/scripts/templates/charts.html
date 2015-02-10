@@ -1,15 +1,8 @@
 <div class="preview">
-	<% _.each(category, function(item) { %>
-	<div>
-		<h3><%- item.name %></h3>
-		<ul>
-			<% _.each(item.list, function(info) { %>
-			<li>
-				<a href=<%- info.chart_link %> ><%- info.chart_type %></a>
-				<img src="" alt="chart thumb" />
-			</li>	
-			<% }) %>
-		</ul>
-	</div>
-	<% }) %>
+		<% category.each(function(info) { %>
+		<div class="chart-preview">
+			<a href=<%- info.get('link') %> ><%- info.get('type') %></a>
+			<img src="" alt="chart thumb" />
+		</div>	
+		<% }) %>
 </div>

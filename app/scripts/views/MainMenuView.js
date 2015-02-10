@@ -3,7 +3,9 @@ define(['jquery', 'underscore', 'backbone', 'text!../templates/main-menu.html'],
 
 	var MainMenuView = Backbone.Layout.extend({
 		el: $('#menu'),
+
 		template: _.template( mainMenuTemplate),
+		
 		render: function() {
 			
 		}

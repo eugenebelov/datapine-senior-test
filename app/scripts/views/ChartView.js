@@ -1,7 +1,7 @@
-define(['jquery', 'underscore', 'backbone', 'highcharts', 'drilldown', 
+define(['jquery', 'underscore', 'backbone', 'highcharts',
 	'models/ChartListCollection',
 	'text!templates/charts.html'], 
-	function($, _, Backbone, Highcharts, Drilldown, 
+	function($, _, Backbone, Highcharts, 
 		ChartListCollection,
 		chartsTemplate) {
 

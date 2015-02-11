@@ -2,40 +2,31 @@
 'use strict';
 
 require.config({
-    shim: {
-        underscore: {
-            exports: '_'
-        },
-        backbone: {
-            deps: [
-                'underscore',
-                'jquery'
-            ],
-            exports: 'Backbone'
-        },
-        highcharts: {
-            "exports": "highcharts",
-            "deps": [ "jquery"] 
-        },
-        drilldown: {
-            "exports": "drilldown",
-            "deps": [ "jquery", "highcharts"] 
-        }
-    },
     paths: {
         jquery: '../bower_components/jquery/jquery',
         backbone: '../bower_components/backbone/backbone',
         layoutmanager: '../bower_components/layoutmanager/backbone.layoutmanager',
         underscore: '../bower_components/underscore/underscore',
         text: '../bower_components/requirejs-text/text',
-        highcharts: '../bower_components/highcharts-release/highcharts',
-        drilldown: '../bower_components/highcharts-release/modules/drilldown'
+        highcharts: '../bower_components/highcharts-release/highcharts'
+    },
+    shim: {
+        underscore: {
+            exports: '_'
+        },
+        backbone: {
+            deps: [ 'underscore', 'jquery' ],
+            exports: 'Backbone'
+        },
+        highcharts: {
+            exports: 'Highcharts'
+        }
     }
 });
 
 require([
-    'backbone', 'application'
-], function (Backbone, Application) {
+    'backbone', 'application', 'highcharts'
+], function (Backbone, Application, Highcharts) {
 
     console.log('Hello from Backbone! :)');
 

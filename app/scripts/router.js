@@ -1,5 +1,11 @@
-define(['backbone', 'views/ChartView', 'views/AboutView', 'views/ChartViewPreview'], 
-	function(Backbone, ChartView, AboutView, ChartViewPreview){
+define(['backbone', 
+	'views/ChartView', 'views/AboutView', 
+	'views/LineChartView', 'views/PieChartView', 
+	'views/ColumnChartView', 'views/CombiChartView'], 
+	function(Backbone, 
+		ChartView, AboutView, 
+		LineChartView, PieChartView, 
+		ColumnChartView, CombiChartView){
     
 	var Router = Backbone.Router.extend({
 		routes: {
@@ -30,8 +36,24 @@ define(['backbone', 'views/ChartView', 'views/AboutView', 'views/ChartViewPrevie
 		router.on('route:show-previews', function(type) {
 			console.log("show-previews", type);
 
-			var preview = new ChartViewPreview()
-			preview.render();
+			switch(type) {
+				case "line":
+					var preview = new LineChartView()
+					preview.render();
+				break;
+				case "pie":
+					var preview = new PieChartView()
+					preview.render();
+				break;
+				case "column":
+					var preview = new ColumnChartView()
+					preview.render();
+				break;
+				case "combi":
+					var preview = new CombiChartView()
+					preview.render();
+				break;
+			}
 		})
 	};
 

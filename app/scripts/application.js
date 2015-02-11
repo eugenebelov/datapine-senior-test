@@ -1,13 +1,13 @@
 define(['jquery', 'underscore', 'backbone', 'router', 'layoutmanager', 'views/MainMenuView'], 
   function($, _, Backbone, Router, Layout, MainMenuView) {
     var initialize = function() {
-    	Router.initialize();
-
-		Layout.configure({
+    	Layout.configure({
 			manage: true
 		});
 
 		new MainMenuView().render();
+
+		Router.initialize();
     }
 
     return {

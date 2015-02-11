@@ -5,6 +5,7 @@ define(['underscore', 'backbone', 'models/ChartListModel'], function(_, Backbone
 		model: ChartListModel,
 
 		parse: function(response) {
+			response.thumb = "kashjdfkahs";
 			return response;
 		}
 	});

@@ -1,9 +1,6 @@
 
-define(['jquery', 'underscore', 'backbone', 'highcharts', 'models/PieChartCollection',
-	'text!templates/charts-preview.html'], 
-	function($, _, Backbone, Highcharts,
-		PieChartCollection,
-		chartsTemplate) {
+define(['jquery', 'underscore', 'backbone', 'highcharts', 'models/PieChartCollection','text!templates/charts-preview.html'], 
+	function($, _, Backbone, Highcharts, PieChartCollection, chartsTemplate) {
 
 	var PieChartView = Backbone.Layout.extend({
 		el: $('#appView'),

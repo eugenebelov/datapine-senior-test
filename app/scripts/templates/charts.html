@@ -1,8 +1,8 @@
 <div class="preview">
-		<% category.each(function(info) { %>
-		<div class="chart-preview">
-			<a href=<%- info.get('link') %> ><%- info.get('type') %></a>
-			<img src=<%- info.get('imgThumb') %> width="100px" alt="chart thumb" />
-		</div>	
-		<% }) %>
+	<% category.each(function(info) { %>
+	<div class="chart-preview">
+		<a href="<%= info.get('link') %>" ><%- info.get('type') %></a>
+		<img src="<%= info.get('imgThumb') %>" />
+	</div>	
+	<% }) %>
 </div>

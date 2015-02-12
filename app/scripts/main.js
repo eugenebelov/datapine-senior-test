@@ -31,6 +31,4 @@ require([
     console.log('Hello from Backbone! :)');
 
     Application.initialize();
-
-    Backbone.history.start();
 });

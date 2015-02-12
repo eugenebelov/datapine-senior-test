@@ -16,44 +16,52 @@ define(['backbone',
 		}
 	});
 
-	var initialize = function() {
+	var initialize = function(layout) {
 		var router = new Router();
 
 		router.on('route:about', function() {
 			console.log("show about");
 
-			var about = new AboutView();
-			about.render();
+			layout.setView("#appView", new AboutView());
+			layout.render();
 		})
 
 		router.on('route:charts', function() {
 			console.log("show charts");
 
-			var chart = new ChartView();
-			chart.render();
+			layout.setView("#appView", new ChartView({
+				collection: layout.chartCollection
+			}));
+			layout.render();
 		})
 
 		router.on('route:show-previews', function(type) {
-			console.log("show-previews", type);
+			console.log("show-previews", type, layout.chartCollection);
 
 			switch(type) {
 				case "line":
-					var preview = new LineChartView()
-					preview.render();
+					layout.setView("#appView", new LineChartView({
+						collection: layout.chartCollection
+					}));
 				break;
 				case "pie":
-					var preview = new PieChartView()
-					preview.render();
+					layout.setView("#appView", new PieChartView({
+						collection: layout.chartCollection
+					}));
 				break;
 				case "column":
-					var preview = new ColumnChartView()
-					preview.render();
+					layout.setView("#appView", new ColumnChartView({
+						collection: layout.chartCollection
+					}));
 				break;
 				case "combi":
-					var preview = new CombiChartView()
-					preview.render();
+					layout.setView("#appView", new CombiChartView({
+						collection: layout.chartCollection
+					}));
 				break;
 			}
+
+			layout.render();
 		})
 	};
 

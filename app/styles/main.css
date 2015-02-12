@@ -12,6 +12,9 @@ body {
 }
 
 #appView {
+    border: 1px solid #CCCCCC;
+    margin: 10px;
+    padding: 10px;
     height: 400px;
 }
 
@@ -30,6 +33,10 @@ body {
     overflow: auto;
     border: 1px solid #CCC;
     margin: 10px;
+}
+
+.chart-preview img {
+    width: 150px;
 }
 
 .browsehappy {

@@ -6,18 +6,19 @@ define(['jquery', 'underscore', 'backbone', 'highcharts',
 		chartsTemplate) {
 
 	var ChartView = Backbone.Layout.extend({
-		el: $('#appView'),
+		// el: $('#appView'),
 		
 		template: _.template(chartsTemplate),
 
 		initialize: function() {
-			this.thumbUrl = "http://export.highcharts.com/";
+			// this.listenTo(this.collection, "sync", this.generateThumbnail);
+			// this.listenTo(this.collection, "change", function(data) {
+			// 	if(data.get('imgThumb')) {
+			// 		this.render();
+			// 	}
+			// });
 
-			this.collection = new ChartListCollection();
-			this.collection.fetch();
-
-			this.listenTo(this.collection, "sync", this.generateThumbnail);
-			this.listenTo(this.collection, "change:imgThumb", this.render);
+			this.listenTo(this.collection, "sync", this.render);
 		},
 
 		generateThumbnail: function() {
@@ -30,6 +31,7 @@ define(['jquery', 'underscore', 'backbone', 'highcharts',
 					};
 
 			    obj.options = JSON.stringify(options);
+			    obj.width = 150;
 			    obj.type = 'image/png';
 			    obj.async = true;
 
@@ -38,8 +40,13 @@ define(['jquery', 'underscore', 'backbone', 'highcharts',
 			        url: "http://export.highcharts.com/",
 			        data: obj,
 			        context: model,
+			        async: true,
 			        success: function (data) {
-			            this.set('imgThumb', "http://export.highcharts.com/" + data);
+			        	var reg = /files\//g;
+
+			        	if(data != undefined && data.match(reg)) {
+			        		this.set('imgThumb', "http://export.highcharts.com/" + data);
+			        	}
 			        }
 			    });
 			})			

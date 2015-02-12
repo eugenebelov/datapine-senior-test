@@ -6,51 +6,52 @@ define(['jquery', 'underscore', 'backbone', 'highcharts',
 		chartsTemplate) {
 
 	var LineChartView = Backbone.Layout.extend({
-		el: $('#appView'),
+		// el: $('#appView'),
 
 		template: _.template( chartsTemplate ),
 
 		initialize: function() {
-			this.collection = new LineChartCollection();
-			this.collection.fetch();
+			// this.collection = new LineChartCollection();
+			// this.collection.fetch();
 
-			this.listenTo(this.collection, "sync", this.render);
+			// this.listenTo(this.collection, "sync", this.render);
 		},
 
 		addChart: function() {
-			$('#container').highcharts({
-				"title": {
-			        "text": "Monthly Average Temperature",
-			        "x": -20
-			    },
-			    "subtitle": {
-			        "text": "Source: WorldClimate.com",
-			        "x": -20
-			    },
-			    "xAxis": {
-			        "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-			    },
-			    "yAxis": {
-			        "title": {
-			            "text": "Temperature (°C)"
-			        },
-			        "plotLines": [{
-			            "value": 0,
-			            "width": 1,
-			            "color": "#808080"
-			        }]
-			    },
-			    "tooltip": {
-			        "valueSuffix": "°C"
-			    },
-			    "legend": {
-			        "layout": "vertical",
-			        "align": "right",
-			        "verticalAlign": "middle",
-			        "borderWidth": 0
-			    },
-			    "series": this.collection.toJSON()
-			});
+			// console.log(this.collection)
+			// $('#container').highcharts({
+			// 	"title": {
+			//         "text": "Monthly Average Temperature",
+			//         "x": -20
+			//     },
+			//     "subtitle": {
+			//         "text": "Source: WorldClimate.com",
+			//         "x": -20
+			//     },
+			//     "xAxis": {
+			//         "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+			//     },
+			//     "yAxis": {
+			//         "title": {
+			//             "text": "Temperature (°C)"
+			//         },
+			//         "plotLines": [{
+			//             "value": 0,
+			//             "width": 1,
+			//             "color": "#808080"
+			//         }]
+			//     },
+			//     "tooltip": {
+			//         "valueSuffix": "°C"
+			//     },
+			//     "legend": {
+			//         "layout": "vertical",
+			//         "align": "right",
+			//         "verticalAlign": "middle",
+			//         "borderWidth": 0
+			//     },
+			//     "series": this.collection.toJSON()
+			// });
 		},
 
 		afterRender: function() {

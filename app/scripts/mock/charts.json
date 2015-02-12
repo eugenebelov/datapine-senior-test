@@ -53,54 +53,38 @@
         "link": "#/charts/column",
         "chartSettings": {
             "chart": {
-                "plotBackgroundColor": null,
-                "plotBorderWidth": 0,
-                "plotShadow": false
+                "type": "bar"
             },
             "title": {
-                "text": "Browser<br>shares",
-                "align": "center",
-                "verticalAlign": "middle",
-                "y": 50
+                "text": "Stacked bar chart"
             },
-            "tooltip": {
-                "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
+            "xAxis": {
+                "categories": ["Apples", "Oranges", "Pears", "Grapes", "Bananas"]
+            },
+            "yAxis": {
+                "min": 0,
+                "title": {
+                    "text": "Total fruit consumption"
+                }
+            },
+            "legend": {
+                "reversed": true
             },
             "plotOptions": {
-                "pie": {
-                    "dataLabels": {
-                        "enabled": true,
-                        "distance": -50,
-                        "style": {
-                            "fontWeight": "bold",
-                            "color": "white",
-                            "textShadow": "0px 1px 2px black"
-                        }
-                    },
-                    "startAngle": -90,
-                    "endAngle": 90,
-                    "center": ["50%", "75%"]
+                "series": {
+                    "stacking": "normal"
                 }
             }
         },
         "series": [{
-            "type": "pie",
-            "name": "Browser share",
-            "innerSize": "50%",
-            "data": [
-                ["Firefox",   45.0],
-                ["IE",       26.8],
-                ["Chrome", 12.8],
-                ["Safari",    8.5],
-                ["Opera",     6.2],
-                {
-                    "name": "Others",
-                    "y": 0.7,
-                    "dataLabels": {
-                        "enabled": false
-                    }
-                }
-            ]
+            "name": "John",
+            "data": [5, 3, 4, 7, 2]
+        }, {
+            "name": "Jane",
+            "data": [2, 2, 3, 2, 1]
+        }, {
+            "name": "Joe",
+            "data": [3, 4, 4, 2, 5]
         }]
     },
     {
@@ -162,55 +146,66 @@
         "type": "Combi",
         "link": "#/charts/combi",
         "chartSettings": {
-            "chart": {
-                "plotBackgroundColor": null,
-                "plotBorderWidth": 0,
-                "plotShadow": false
-            },
             "title": {
-                "text": "Browser<br>shares",
-                "align": "center",
-                "verticalAlign": "middle",
-                "y": 50
+                "text": "Combination chart"
             },
-            "tooltip": {
-                "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
+            "xAxis": {
+                "categories": ["Apples", "Oranges", "Pears", "Bananas", "Plums"]
             },
-            "plotOptions": {
-                "pie": {
-                    "dataLabels": {
-                        "enabled": true,
-                        "distance": -50,
-                        "style": {
-                            "fontWeight": "bold",
-                            "color": "white",
-                            "textShadow": "0px 1px 2px black"
-                        }
-                    },
-                    "startAngle": -90,
-                    "endAngle": 90,
-                    "center": ["50%", "75%"]
-                }
+            "labels": {
+                "items": [{
+                    "html": "Total fruit consumption",
+                    "style": {
+                        "left": "50px",
+                        "top": "18px",
+                        "color": "black"
+                    }
+                }]
             }
         },
         "series": [{
+            "type": "column",
+            "name": "Jane",
+            "data": [3, 2, 1, 3, 4]
+        }, {
+            "type": "column",
+            "name": "John",
+            "data": [2, 3, 5, 7, 6]
+        }, {
+            "type": "column",
+            "name": "Joe",
+            "data": [4, 3, 3, 9, 0]
+        }, {
+            "type": "spline",
+            "name": "Average",
+            "data": [3, 2.67, 3, 6.33, 3.33],
+            "marker": {
+                "lineWidth": 2,
+                "lineColor": "#f7a35c",
+                "fillColor": "white"
+            }
+        }, {
             "type": "pie",
-            "name": "Browser share",
-            "innerSize": "50%",
-            "data": [
-                ["Firefox",   45.0],
-                ["IE",       26.8],
-                ["Chrome", 12.8],
-                ["Safari",    8.5],
-                ["Opera",     6.2],
-                {
-                    "name": "Others",
-                    "y": 0.7,
-                    "dataLabels": {
-                        "enabled": false
-                    }
-                }
-            ]
+            "name": "Total consumption",
+            "data": [{
+                "name": "Jane",
+                "y": 13,
+                "color": "#7cb5ec"
+            }, {
+                "name": "John",
+                "y": 23,
+                "color": "#434348"
+            }, {
+                "name": "Joe",
+                "y": 19,
+                "color": "#90ed7d"
+            }],
+            "center": [100, 80],
+            "size": 100,
+            "showInLegend": false,
+            "dataLabels": {
+                "enabled": false
+            }
         }]
     }
 ]

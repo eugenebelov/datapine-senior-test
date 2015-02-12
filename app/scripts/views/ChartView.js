@@ -11,14 +11,12 @@ define(['jquery', 'underscore', 'backbone', 'highcharts',
 		template: _.template(chartsTemplate),
 
 		initialize: function() {
-			// this.listenTo(this.collection, "sync", this.generateThumbnail);
-			// this.listenTo(this.collection, "change", function(data) {
-			// 	if(data.get('imgThumb')) {
-			// 		this.render();
-			// 	}
-			// });
-
-			this.listenTo(this.collection, "sync", this.render);
+			this.listenTo(this.collection, "sync", this.generateThumbnail);
+			this.listenTo(this.collection, "change", function(data) {
+				if(data.get('imgThumb')) {
+					this.render();
+				}
+			});
 		},
 
 		generateThumbnail: function() {

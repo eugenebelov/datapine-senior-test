@@ -269,6 +269,18 @@ module.exports = function (grunt) {
                 }
             }
         },
+        less: {
+          development: {
+            options: {
+              compress: false,
+              yuicompress: false,
+              optimization: 2
+            },
+            files: {
+              "./styles/main.css": "./styles/main.less" // destination file and source file
+            }
+          }
+        },
         modernizr: {
             devFile: '<%= yeoman.app %>/bower_components/modernizr/modernizr.js',
             outputFile: '<%= yeoman.dist %>/bower_components/modernizr/modernizr.js',
@@ -283,6 +295,7 @@ module.exports = function (grunt) {
             server: [
                 'createDefaultTemplate',
                 'jst',
+                'less',
                 'copy:styles'
             ],
             test: [

@@ -19,14 +19,15 @@ require.config({
             exports: 'Backbone'
         },
         highcharts: {
-            exports: 'Highcharts'
+            exports: 'Highcharts',
+            deps: ['jquery']
         }
     }
 });
 
 require([
-    'backbone', 'application', 'highcharts'
-], function (Backbone, Application, Highcharts) {
+    'backbone', 'application'
+], function (Backbone, Application) {
 
     console.log('Hello from Backbone! :)');
 

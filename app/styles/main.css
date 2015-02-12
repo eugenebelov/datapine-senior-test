@@ -1,29 +1,82 @@
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    font-family: "Oswald";
     color: #333;
     font-size: 18px;
 }
 
-#menu {
-    border: 1px solid #CCCCCC;
-    margin: 10px;
+#menu, #appView {
+    /*border: 1px solid #CCCCCC;*/
     padding: 10px;
 }
 
 #appView {
-    border: 1px solid #CCCCCC;
-    margin: 10px;
-    padding: 10px;
     height: 400px;
+}
+
+.menu {
+    vertical-align: middle;
+    background-color: #303030;
+}
+
+.menu .heading {
+    margin-left: 40px;
+}
+
+.menu li {
+    display: inline-block;
+    font-size: 20px;
+    width: 100px;
+}
+
+.menu li a:hover, .chartTitle p:hover {
+    color: #d38428;
+}
+
+.menu li a, .menu h2 {
+    color: #FFF;
+    text-decoration: none;
 }
 
 .application {
     height: 500px;
-
     border: 1px solid #CCCCCC;
     margin: 10px;
     padding: 10px;
+}
+
+.preview {
+    width: 100%;
+}
+
+.circle {
+    border: 3px solid #FFF;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    border-radius: 100%;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 25%;
+    left: 25%;
+    margin-top: -20px;
+}
+
+.chartTitle {
+    background-color: #303030;
+    text-align: center;
+    height: 32px;
+    width: 100%;
+    bottom: 0px;
+    position: absolute;
+}
+
+.chartTitle p {
+    line-height: 32px;
+    padding: 0;
+    margin: 0;
+    color: #FFF;
+    text-decoration: none;
 }
 
 .chart-preview {
@@ -33,10 +86,7 @@ body {
     overflow: auto;
     border: 1px solid #CCC;
     margin: 10px;
-}
-
-.chart-preview img {
-    width: 150px;
+    position: relative;
 }
 
 .browsehappy {
